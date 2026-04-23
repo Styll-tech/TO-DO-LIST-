@@ -1,0 +1,117 @@
+   body {
+        --bg: #ffffff;
+        --text: #111111;
+      }
+
+      body.dark {
+        --bg: #0f172a;
+        --text: #ffffff;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .todo,
+      .todo-app {
+        background: var(--card);
+        border: 1px solid var(--border);
+      }
+
+      input,
+      li {
+        background: var(--card);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .todo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+      h3 {
+        margin-bottom: 20px;
+        font-size: 40px;
+      }
+      #taskInput {
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #28a745;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #218838;
+      }
+      #themeToggle {
+        background: transparent;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        transition:
+          transform 0.4s ease,
+          filter 0.4s ease;
+      }
+      #themeToggle.animate {
+        transform: rotate(360deg) scale(1.2);
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+      }
+      body.dark #themeToggle.animate {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+      }
+      #taskList {
+        list-style-type: none;
+        width: 300px;
+      }
+      #taskList li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+
+    
+        opacity: 0;
+        transform: translateX(-30px);
+        word-wrap: break-word;
+  overflow-wrap: break-word;
+        animation: slideIn 0.3s ease forwards;
+      }
+      #taskList li span {
+  flex: 1;                
+  word-break: break-word; 
+}
+      @keyframes slideIn {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @media (max-width: 400px) {
+        .todo {
+          width: 90%;
+        }
+        #taskList {
+          width: 100%;
+        }
+      }
+      .done {
+        text-decoration: line-through;
+        color: #888;
+      }
